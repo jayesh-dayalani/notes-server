@@ -1,0 +1,10 @@
+async 
+await
+packages
+routers
+express vs node
+mopngo working
+status codes
+get post del
+req res
+mongo cmds
