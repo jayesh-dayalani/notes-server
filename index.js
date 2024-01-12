@@ -6,6 +6,7 @@ const helmet = require('helmet')
 
 // using our custom endpoints
 const authRouter = require('./routes/auth')
+const noteRouter = require('./routes/notes')
 
 const app = express()
 
@@ -27,6 +28,7 @@ app.use(helmet())
 
 // calling custom endpoints / apis
 app.use('/api/auth', authRouter)
+app.use('/api/note', noteRouter)
 
 
 // connecting mongodb

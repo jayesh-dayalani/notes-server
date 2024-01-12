@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const Notes = new mongoose.Schema({
+const Note = new mongoose.Schema({
     title: {
         type: String,
         min: 5,
@@ -14,8 +14,15 @@ const Notes = new mongoose.Schema({
         required: true,
         // unique: true,
     },
- 
-}, { timestamps:true})
+    postedBy: {
+        type: String,
+        min: 5,
+        max: 50,
+        required: true,
+        
+    }
 
-module.exports = mongoose.model('user', User)
+}, { timestamps: true })
+
+module.exports = mongoose.model('note', Note)
 
