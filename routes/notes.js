@@ -40,8 +40,27 @@ router.delete('/deleteNotes/:id', async (req, res) => {
         res.status(500).json(e)
     }
 })
-// update notes
 
+
+// update notes
+router.put('/updateNotes/:id', async (req, res) => {
+    try {
+        // check if the notes is present 
+        const notes = await Note.findOne({ _id: req.params.id })
+        !notes && res.status(400).json({ message: "note not found", status: false })
+
+        // delete if present
+        const note = await Note.updateOne({
+            title: req.body.title,
+            description: req.body.description,
+            postedBy: req.body.postedBy
+        })
+        res.status(200).json({ message: "note updated successful", status: true })
+    } catch (e) {
+        console.log(e)
+        res.status(500).json(e)
+    }
+})
 // get all notes
 
 module.exports = router
