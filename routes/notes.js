@@ -26,7 +26,20 @@ router.post('/addNotes', async (req, res) => {
 
 
 // delete notes
+router.delete('/deleteNotes/:id', async (req, res) => {
+    try {
+        // check if the notes is present 
+        const notes = await Note.findOne({ _id: req.params.id })
+        !notes && res.status(400).json({message:"note not found", status:false})
 
+        // delete if present
+        const note = await Note.deleteOne({ _id: req.params.id })
+        res.status(200).json({ message: "note deleted successful", status: true })
+    } catch (e) {
+        console.log(e)
+        res.status(500).json(e)
+    }
+})
 // update notes
 
 // get all notes
