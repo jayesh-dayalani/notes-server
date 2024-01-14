@@ -43,11 +43,15 @@ mongoose.connect(process.env.MONGO_URL, {
 }).then(
     () => {
         console.log(":: mongodb connect successful")
-    }).catch(
+    }
+app.listen(8000, () => {
+    console.log(":: app is running on PORT : http://localhost:8000")
+})
+).catch(
         (err) => {
             console.log("error connecting mongo db :" + err)
         })
 
-app.listen(8000, () => {
-    console.log(":: app is running on PORT : http://localhost:8000")
-})
+// app.listen(8000, () => {
+//     console.log(":: app is running on PORT : http://localhost:8000")
+// })
