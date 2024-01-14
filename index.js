@@ -27,12 +27,12 @@ app.get('/notes', (req, res) => {
 })
 
 // calling custom endpoints / apis
-// app.use('/api/auth', authRouter)
-// app.use('/api/note', noteRouter)
+app.use('/api/auth', authRouter)
+app.use('/api/note', noteRouter)
 
 // added later
-app.use('https://worried-lamb-nightgown.cyclic.app/api/auth', authRouter)
-app.use('https://worried-lamb-nightgown.cyclic.app/api/note', noteRouter)
+// app.use('https://worried-lamb-nightgown.cyclic.app/api/auth', authRouter)
+// app.use('https://worried-lamb-nightgown.cyclic.app/api/note', noteRouter)
 
 
 
