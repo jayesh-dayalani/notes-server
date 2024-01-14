@@ -21,18 +21,18 @@ app.use(helmet())
 
 // adding routes
 // note: this will be in ./auth
-// app.get('/notes', (req, res) => {
-//     res.send(":: notes fetched successfull")
-//     console.log(':: /notes fetched ')
-// })
+app.get('/notes', (req, res) => {
+    res.send(":: notes fetched successfull")
+    console.log(':: /notes fetched ')
+})
 
 // calling custom endpoints / apis
-// app.use('/api/auth', authRouter)
-// app.use('/api/note', noteRouter)
+app.use('/api/auth', authRouter)
+app.use('/api/note', noteRouter)
 
 // added later
-app.use('https://worried-lamb-nightgown.cyclic.app/api/auth', authRouter)
-app.use('https://worried-lamb-nightgown.cyclic.app/api/note', noteRouter)
+// app.use('https://worried-lamb-nightgown.cyclic.app/api/auth', authRouter)
+// app.use('https://worried-lamb-nightgown.cyclic.app/api/note', noteRouter)
 
 
 
@@ -44,14 +44,12 @@ mongoose.connect(process.env.MONGO_URL, {
     () => {
         console.log(":: mongodb connect successful")
     }
-app.listen(8000, () => {
-    console.log(":: app is running on PORT : http://localhost:8000")
-})
+
 ).catch(
         (err) => {
             console.log("error connecting mongo db :" + err)
         })
 
-// app.listen(8000, () => {
-//     console.log(":: app is running on PORT : http://localhost:8000")
-// })
+app.listen(8000, () => {
+    console.log(":: app is running on PORT : http://localhost:8000")
+})
